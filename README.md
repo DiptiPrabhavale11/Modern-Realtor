@@ -1,8 +1,8 @@
-# [Modern Realtor](https://modern-realtor.onrender.com/)
+# [Modern Realtor](https://modern-realtor.onrender.com)
 
 ## 🌐Application URL
 
-To access the application, visit the [URL](https://modern-realtor.onrender.com/)
+To access the application, visit the [URL](https://modern-realtor.onrender.com)
 
 ## 🚀 Getting Started
 
