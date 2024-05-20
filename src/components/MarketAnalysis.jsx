@@ -63,9 +63,9 @@ const MarketAnalysis = () => {
         return nearbyAreas;
     }
 
-    const addressSelect = (address)=>{
-        const filteredData = listings.find(item=>item.street===address);
-        const nearby = findNearbyAreas(filteredData.latitude, filteredData.longitude, listings, 50);
+    const addressSelect = (address) => {
+        const filteredData = listings.find(item => item.street === address);
+        const nearby = findNearbyAreas(filteredData.latitude, filteredData.longitude, listings, 10);
         setListings(nearby);
     }
     useState(() => {
@@ -81,10 +81,14 @@ const MarketAnalysis = () => {
             {listings.length > 0 &&
                 <>
                     <Row className='mb-2'>
+                        <Row>
+                            <p className='mx-2' style={{color: 'gray'}}>Type the address to search nearby homes within 5 km radious</p>
+                        </Row>
                         <Col md={4}>
                             <AddressDropdown items={addressList} selectCallback={addressSelect}></AddressDropdown>
                         </Col>
-                        <Col md={4}>Showing {listings.length} records of {allListings.length}</Col>
+                        <Col md={4}></Col>
+                        <Col md={4}style={{ textAlign: 'end', color: 'rgb(84, 92, 129)' }}>Showing <b>{listings.length}</b> of <b>{allListings.length}</b> records</Col>
                     </Row>
 
                     <table>
@@ -98,9 +102,9 @@ const MarketAnalysis = () => {
                         </thead>
                         <tbody>
                             {listings.map((row, rowIndex) => (
-                                <tr key={rowIndex}>A
+                                <tr key={rowIndex} style={{ padding: '5px' }}>
                                     {Object.values(row).map((columnData, columnIndex) => (
-                                        <td key={columnIndex}>{columnData}</td>
+                                        <td style={{ padding: '5px' }} key={columnIndex}>{columnData}</td>
                                     ))}
                                 </tr>
                             ))}
