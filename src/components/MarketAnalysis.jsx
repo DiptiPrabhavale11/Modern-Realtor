@@ -81,14 +81,14 @@ const MarketAnalysis = () => {
             {listings.length > 0 &&
                 <>
                     <Row className='mb-2'>
-                        <Row>
-                            <p className='mx-2' style={{color: 'gray'}}>Type the address to search nearby homes within 5 km radious</p>
-                        </Row>
                         <Col md={4}>
                             <AddressDropdown items={addressList} selectCallback={addressSelect}></AddressDropdown>
                         </Col>
                         <Col md={4}></Col>
-                        <Col md={4}style={{ textAlign: 'end', color: 'rgb(84, 92, 129)' }}>Showing <b>{listings.length}</b> of <b>{allListings.length}</b> records</Col>
+                        <Col md={4} style={{ textAlign: 'end', color: 'rgb(84, 92, 129)' }}>Showing <b>{listings.length}</b> of <b>{allListings.length}</b> records</Col>
+                        <Row>
+                            <p className='mx-2' style={{ color: 'gray' }}>Type the address to search nearby homes within 5 km radious</p>
+                        </Row>
                     </Row>
 
                     <table>
