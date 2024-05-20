@@ -287,6 +287,18 @@ const CARForm = () => {
                             }} type="submit">
                                 Submit
                             </Button>
+                            <Button 
+                            onClick={generatePDF}
+                            style={{
+                                marginLeft: '15px',
+                                marginBottom: '5px',
+                                width: '100px',
+                                border: 'rgb(84, 92, 129)',
+                                backgroundColor: 'rgb(84, 92, 129)',
+                                color: 'rgb(255, 255, 255)'
+                            }}>
+                                Download
+                            </Button>
                         </Row>
                     </Row>
                 </Form>
