@@ -1,9 +1,5 @@
 # [Modern Realtor](https://modern-realtor.onrender.com)
 
-## 🌐Application URL
-
-To access the application, visit the [URL](https://modern-realtor.onrender.com)
-
 ## 🚀 Getting Started
 
 To set up this project on your local machine, please follow the instructions below
