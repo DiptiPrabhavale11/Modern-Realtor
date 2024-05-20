@@ -17,7 +17,7 @@ To set up this project on your local machine, please follow the instructions bel
    Connect to GitHub and clone the repository in your local using the
    command ``` git clone https://github.com/modern_realtor.git ```
 
-    Skip this step if you already have a zip folder
+   Skip Step-1 if you already have a zip folder
 
 #### Step-2: Run application locally
 
