@@ -11,7 +11,7 @@ To set up this project on your local machine, please follow the instructions bel
 ### Setting Up Your Development Environment
 
 1) Install and configure Git
-2) Install Node, NVM
+2) Install Node
 3) Install IDE of your choice ( Webstorm, VS code etc.)
 
 ### Downloading and Running the Project

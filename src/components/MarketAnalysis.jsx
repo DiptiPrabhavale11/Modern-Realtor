@@ -7,6 +7,7 @@ const MarketAnalysis = () => {
     const [allListings, setAllListings] = useState([]);
     const [headers, setHeaders] = useState([]);
     const [addressList, setAddressList] = useState([]);
+
     const fetchData = async () => {
         try {
             const response = await fetch('/Listing.csv');
@@ -15,7 +16,7 @@ const MarketAnalysis = () => {
             const parsedData = parseCSV(csvData);
             setListings(parsedData);
             setAllListings(parsedData);
-            setHeaders(Object.keys(parsedData[0]));
+            setHeaders(Object.keys(parsedData[0]).filter(header => header !== 'latitude' && header !== 'longitude'));
             const addresses = [...new Set(parsedData.map(a => a.street))];
             setAddressList(addresses);
             console.log("nearby", addresses, nearby)
@@ -23,6 +24,7 @@ const MarketAnalysis = () => {
             console.error('Error fetching data:', error);
         }
     };
+
     const parseCSV = (csvData) => {
         const rows = csvData.split('\n');
         const headers = rows[0].split(',');
@@ -68,7 +70,8 @@ const MarketAnalysis = () => {
         const nearby = findNearbyAreas(filteredData.latitude, filteredData.longitude, listings, 10);
         setListings(nearby);
     }
-    useState(() => {
+
+    useEffect(() => {
         fetchData();
     }, []);
 
@@ -87,24 +90,24 @@ const MarketAnalysis = () => {
                         <Col md={4}></Col>
                         <Col md={4} style={{ textAlign: 'end', color: 'rgb(84, 92, 129)' }}>Showing <b>{listings.length}</b> of <b>{allListings.length}</b> records</Col>
                         <Row>
-                            <p className='mx-2' style={{ color: 'gray' }}>Type the address to search nearby homes within 5 km radious</p>
+                            <p className='mx-2' style={{ color: 'gray' }}>Type the address to search nearby homes within 5 km radius</p>
                         </Row>
                     </Row>
 
                     <table>
                         <thead>
-                            <tr>
+                            <tr style={{ textAlign: 'left', padding: '10px' }}>
                                 {headers.length > 0 &&
                                     headers.map((columnHeader, index) => (
-                                        <th key={index}>{columnHeader}</th>
+                                        <th style={{ marginRight: '20px', padding: '5px' }} key={index}>{columnHeader}</th>
                                     ))}
                             </tr>
                         </thead>
                         <tbody>
                             {listings.map((row, rowIndex) => (
-                                <tr key={rowIndex} style={{ padding: '5px' }}>
-                                    {Object.values(row).map((columnData, columnIndex) => (
-                                        <td style={{ padding: '5px' }} key={columnIndex}>{columnData}</td>
+                                <tr key={rowIndex} style={{ padding: '10px' }}>
+                                    {Object.keys(row).filter(key => key !== 'latitude' && key !== 'longitude').map((columnKey, columnIndex) => (
+                                        <td style={{ marginRight: '20px', padding: '5px'}} key={columnIndex}>{row[columnKey]}</td>
                                     ))}
                                 </tr>
                             ))}

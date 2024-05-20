@@ -18,14 +18,11 @@ const App = () => {
     <div className="app">
       <AppHeader>
       </AppHeader>
-      {/* <div className="spacing">
-        {error && <Alert variant={error.variant}> {error.msg}</Alert>}
-      </div> */}
       <div className='my-4'>
         <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/form" element={<CARForm />} />
-          <Route path="/market-analysis" element={<MarketAnalysis />} />
+          <Route path="/" element={<CARForm/>} />
+          <Route path="/form" element={<CARForm/>} />
+          <Route path="/market-analysis" element={<MarketAnalysis/>} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </div>
